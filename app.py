@@ -2,6 +2,11 @@
 import streamlit as st
 import pickle
 import numpy as np
+import os
+if not os.path.exists("fake_news_model.pkl"):
+    st.error("Model file not found. Please upload it.")
+else:
+    model = pickle.load(open("fake_news_model.pkl", "rb"))
 
 # Load model and vectorizer
 model = pickle.load(open("fake_news_model.pkl", "rb"))
